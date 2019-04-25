@@ -3,7 +3,7 @@
 - name: Install Jenkins and its prerequisites
   hosts: 127.0.0.1
   connection: local
-  ansible_become: yes
+  become: yes
   tasks:
 #en el paso command con sh -c antes habia un sudo que saco por el sudo:yes
     - name: Install jdk8 (Jenkins prerequisite)
@@ -11,20 +11,24 @@
         name: openjdk-8-jdk
 
     - name: Verify java version
-      command: java -version 
+      command: java -version
       register: java_version
 
-    - name: Add and enable Jenkins repository
-      command: wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
-      command: sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+    - name: Add Jenkins apt key
+      apt_key:
+        url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+        state: present
 
-    - name: Update apt and install Jenkins
+    - name: Update repositories cache and install Jenkins
       apt:
         name: jenkins
         update_cache: yes
 
-    - name: Open 8080(Jenkins default) port in firewall and start Jenkins service 
-      command: ufw allow 8080 && service jenkins start
+    - name: Open 8080(Jenkins default) port in firewall 
+      command: ufw allow 8080
+
+    - name: Start Jenkins Service
+      command: service jenkins start
 
     - name: Verify firewall rules
       command: ufw status
@@ -34,8 +38,14 @@
       command: cat /var/lib/jenkins/secrets/initialAdminPassword
       register: initial_admin_password
 
-    - debug: javaVersion=java_version.stdout_lines
+    - name: Print java version
+      debug:
+        var: java_version.stderr_lines
 
-    - debug: firewallRules=firewall_rules.stdout_lines
+    - name: Print firewall rules
+      debug:
+        var: firewall_rules.stdout_lines
 
-    - debug: initialAdminPassword=initial_admin_password.stdout_lines
+    - name: Print initial admin password
+      debug:
+        var: initial_admin_password.stdout
