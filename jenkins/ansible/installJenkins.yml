@@ -30,6 +30,10 @@
     - name: Start Jenkins Service
       command: service jenkins start
 
+    - name: Verify Jenkins service status
+      command: service jenkins status
+      register: jenkins_status
+
     - name: Verify firewall rules
       command: ufw status
       register: firewall_rules
@@ -45,6 +49,10 @@
     - name: Print firewall rules
       debug:
         var: firewall_rules.stdout_lines
+
+    - name: Print firewall rules
+      debug:
+        var: jenkins_status
 
     - name: Print initial admin password
       debug:
