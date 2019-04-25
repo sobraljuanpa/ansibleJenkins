@@ -5,7 +5,7 @@
   connection: local
   become: yes
   tasks:
-#en el paso command con sh -c antes habia un sudo que saco por el sudo:yes
+
     - name: Install jdk8 (Jenkins prerequisite)
       apt:
         name: openjdk-8-jdk
@@ -50,9 +50,9 @@
       debug:
         var: firewall_rules.stdout_lines
 
-    - name: Print firewall rules
+    - name: Print jenkins status
       debug:
-        var: jenkins_status
+        var: jenkins_status.stdout_lines
 
     - name: Print initial admin password
       debug:
