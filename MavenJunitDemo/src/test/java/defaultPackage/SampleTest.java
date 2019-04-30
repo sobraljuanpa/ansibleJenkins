@@ -6,6 +6,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.junit.Test;
 
 public class SampleTest {
+	java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
 	
 	@Test
 	public void simpleTest() {
