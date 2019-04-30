@@ -30,6 +30,10 @@
     - name: Start Jenkins Service
       command: service jenkins start
 
+    - name: Install Maven
+      apt:
+        name: maven
+
     - name: Verify Jenkins service status
       command: service jenkins status
       register: jenkins_status
