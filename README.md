@@ -7,4 +7,4 @@ This is the list of things done so far:
 
 + Created an ansible playbook to run locally on the host which will be running the tests, so as to install all dependencies and configure a Jenkins instance on it.
 
-+ Apparently managed to poll the repository for changes and trigger builds from it.
++ Managed to hook up Jenkins with this Github repo, Jenkins periodically polls it and if there are any changes it triggers a job.
