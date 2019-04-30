@@ -1,7 +1,8 @@
 package defaultPackage;
 
 import static org.junit.Assert.*;
-
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.junit.Test;
 
 public class SampleTest {
@@ -13,4 +14,14 @@ public class SampleTest {
 		assertTrue(a + b == 3);
 	}
 
+	@Test
+	public void sampleSeleniumHTMLDriverTest()
+	{
+		WebDriver driver = new HtmlUnitDriver();
+		driver.get("http://demo.guru99.com/test/newtours/");
+		String expectedTitle = "Welcome: Mercury Tours";
+		String actualTitle = driver.getTitle();
+
+		Assert.assertEquals(expectedTitle, actualTitle);
+	}
 }
