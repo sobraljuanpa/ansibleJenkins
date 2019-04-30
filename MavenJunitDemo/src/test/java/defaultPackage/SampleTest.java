@@ -6,8 +6,6 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.junit.Test;
 
 public class SampleTest {
-	java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
-	
 	@Test
 	public void simpleTest() {
 		int a = 1;
@@ -19,8 +17,8 @@ public class SampleTest {
 	public void sampleSeleniumHTMLDriverTest()
 	{
 		WebDriver driver = new HtmlUnitDriver();
-		driver.get("http://demo.guru99.com/test/newtours/");
-		String expectedTitle = "Welcome: Mercury Tours";
+		driver.get("http://opencart.abstracta.us");
+		String expectedTitle = "Your Store";
 		String actualTitle = driver.getTitle();
 
 		assertEquals(expectedTitle, actualTitle);
