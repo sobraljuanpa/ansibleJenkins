@@ -1,0 +1,18 @@
+---
+
+- name: Install Firefox and gecko required for execution of Selenium tests
+  hosts: 127.0.0.1
+  connection: local
+  become: yes
+  tasks:
+#this is supposed to be run like this:
+#ansible-playbook installFirefoxAndDriver.yml --ask-sudo-pass
+    - name: Install Firefox
+      apt:
+        name: firefox
+
+    - name: Change location to the one script expects to find selenium in
+      command: cd /home/juanpa/drivers/
+
+    - name: Download gecko driver for Firefox use in Selenium scripts
+      command: curl -L https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz | tar zx
