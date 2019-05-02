@@ -10,6 +10,11 @@ public class HomePage {
     By registerButton = By.cssSelector("#top-links > ul > li.dropdown.open > ul > li:nth-child(1) > a");
     By loginButton = By.cssSelector("#top-links > ul > li.dropdown.open > ul > li:nth-child(2) > a");
 
+    public HomePage(WebDriver webDriver)
+    {
+        driver = webDriver;
+    }
+
     public void clickRegister()
     {
         driver.findElement(myAccountButton).click();

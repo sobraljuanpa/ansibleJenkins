@@ -8,6 +8,7 @@ import org.junit.Test;
 import pages.*;
 
 public class SampleTest {
+
 	private WebDriver driver;
 	private HomePage homePage;
 
@@ -16,17 +17,17 @@ public class SampleTest {
 	{
 		driver = new HtmlUnitDriver();
 		driver.get("http://opencart.abstracta.us");	
-		homePage = new HomePage();
+		homePage = new HomePage(driver);
 		//RegisterPage registerPage = new RegisterPage();
 	}
 
 	@Test
 	public void sampleSeleniumHTMLDriverTest()
 	{
-		WebDriver driver = new HtmlUnitDriver();
 		driver.get("http://opencart.abstracta.us");
 		String expectedTitle = "Your Store";
 		String actualTitle = driver.getTitle();
+		driver.quit();
 
 		assertEquals(expectedTitle, actualTitle);
 	}
@@ -34,10 +35,12 @@ public class SampleTest {
 	@Test
 	public void sampleChangePOMTest()
 	{
+		driver.get("http://opencart.abstracta.us");
 		homePage.clickRegister();
 		//aca cambie de pagina
 		String expectedTitle = "Register Account";
-
-		assertEquals(driver.getTitle(), expectedTitle);
+		String actualTitle = driver.getTitle();
+		
+		assertEquals(actualTitle, expectedTitle);
 	}
 }
