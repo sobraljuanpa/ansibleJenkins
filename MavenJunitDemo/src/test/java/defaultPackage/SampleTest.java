@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.firefox.*;
 import org.junit.Test;
 import pages.*;
