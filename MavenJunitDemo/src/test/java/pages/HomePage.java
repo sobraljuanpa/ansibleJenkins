@@ -7,10 +7,8 @@ public class HomePage {
 
     WebDriver driver;
     By myAccountButton = By.cssSelector("#top-links > ul > li.dropdown > a > i");
-    By registerButton = By.cssSelector("#top-links > ul > li.dropdown.open " +
-        "> ul > li:nth-child(1) > a");
-    By loginButton = By.cssSelector("#top-links > ul > li.dropdown.open > ul" +
-        " > li:nth-child(2) > a");
+    By registerButton = By.cssSelector("#top-links > ul > li.dropdown.open > ul > li:nth-child(1) > a");
+    By loginButton = By.cssSelector("#top-links > ul > li.dropdown.open > ul > li:nth-child(2) > a");
 
     public void clickRegister()
     {
@@ -20,6 +18,7 @@ public class HomePage {
 
     public void clickLogin()
     {
+        driver.findElement(myAccountButton).click();
         driver.findElement(loginButton).click();
     }
 }
