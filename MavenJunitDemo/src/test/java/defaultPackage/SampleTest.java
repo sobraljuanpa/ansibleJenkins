@@ -16,6 +16,7 @@ public class SampleTest {
 	public void setUp()
 	{
 		driver = new HtmlUnitDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://opencart.abstracta.us");	
 		homePage = new HomePage(driver);
 		//RegisterPage registerPage = new RegisterPage();
@@ -40,7 +41,7 @@ public class SampleTest {
 		//aca cambie de pagina
 		String expectedTitle = "Register Account";
 		String actualTitle = driver.getTitle();
-		
+
 		assertEquals(actualTitle, expectedTitle);
 	}
 }
