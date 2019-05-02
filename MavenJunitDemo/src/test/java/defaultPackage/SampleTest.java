@@ -9,7 +9,7 @@ import pages.*;
 
 public class SampleTest {
 	private WebDriver driver;
-	private HomePage homepage;
+	private HomePage homePage;
 
 	@Before
 	public void setUp()
