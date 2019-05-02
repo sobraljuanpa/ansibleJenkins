@@ -8,12 +8,15 @@ import org.junit.Test;
 import pages.*;
 
 public class SampleTest {
+	private WebDriver driver;
+	private HomePage homepage;
+
 	@Before
 	public void setUp()
 	{
-		WebDriver driver = new HtmlUnitDriver();
+		driver = new HtmlUnitDriver();
 		driver.get("http://opencart.abstracta.us");	
-		HomePage homePage = new HomePage();
+		homePage = new HomePage();
 		//RegisterPage registerPage = new RegisterPage();
 	}
 
