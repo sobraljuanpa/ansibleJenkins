@@ -28,8 +28,8 @@ public class RegisterTest {
     @Parameterized.Parameters
     public static Collection inputData() {
         return Arrays.asList(new Object[][] {
-            { "prueba1", "algo" },
-            { "prueba2", "algo" }
+            { "prueba1", "prueba1" },
+            { "prueba2", "prueba2" }
         });
     }
 
