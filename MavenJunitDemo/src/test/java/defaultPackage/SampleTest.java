@@ -40,7 +40,7 @@ public class SampleTest {
 		registerPage.setTelephone("123456");
 		registerPage.setAddress("asdasdadsds");
 		registerPage.setCity("asdadsasdfsdfa");
-		registerPage.setPostCode("11300");
+		registerPage.setPostCode(11300);
 		registerPage.setZoneOption();
 		registerPage.setPassword("Asdasdads123");
 		registerPage.agreeToTerms();

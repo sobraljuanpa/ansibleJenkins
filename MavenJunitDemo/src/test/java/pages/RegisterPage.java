@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class RegisterPage {
-    
+
     WebDriver driver;
     By usernameInput = By.id("input-firstname");
     By lastnameInput = By.id("input-lastname");
@@ -45,7 +45,7 @@ public class RegisterPage {
         driver.findElement(cityInput).sendKeys(city);
     }
 
-    public void setPostCode(String postCode){
+    public void setPostCode(int postCode){
         driver.findElement(postCodeInput).sendKeys(postCode);
     }
 
