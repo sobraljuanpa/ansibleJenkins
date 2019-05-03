@@ -36,7 +36,7 @@ public class SampleTest {
 		RegisterPage registerPage = new RegisterPage(driver);
 
 		registerPage.setUsername("asdfghj");
-		registerPage.setLastName("ASdfggfds");
+		registerPage.setLastname("ASdfggfds");
 		registerPage.setTelephone("123456");
 		registerPage.setAddress("asdasdadsds");
 		registerPage.setCity("asdadsasdfsdfa");
