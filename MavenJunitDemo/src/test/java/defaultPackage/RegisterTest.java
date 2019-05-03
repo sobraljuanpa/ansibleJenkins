@@ -55,6 +55,6 @@ public class RegisterTest {
 
     @Test
     public void testParameterizedRuns() {
-        Assert.assertEquals(prueba1, prueba2);
+        assertEquals(prueba1, prueba2);
     }
 }
