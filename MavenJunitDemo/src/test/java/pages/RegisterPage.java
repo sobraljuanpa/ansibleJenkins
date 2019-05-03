@@ -45,7 +45,7 @@ public class RegisterPage {
         driver.findElement(cityInput).sendKeys(city);
     }
 
-    public void setPostCode(int postCode){
+    public void setPostCode(String postCode){
         driver.findElement(postCodeInput).sendKeys(postCode);
     }
 
