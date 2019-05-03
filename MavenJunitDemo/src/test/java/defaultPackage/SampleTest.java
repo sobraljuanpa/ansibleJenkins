@@ -30,12 +30,23 @@ public class SampleTest {
 	}
 
 	@Test
-	public void sampleSeleniumHTMLDriverTest()
+	public void RegisterUserTest()
 	{
-		driver.get("http://opencart.abstracta.us");
-		String expectedTitle = "Your Store";
+		homePage.clickRegister();
+		RegisterPage registerPage = new RegisterPage(driver);
+
+		registerPage.setUsername("asdfghj");
+		registerPage.setLastName("ASdfggfds");
+		registerPage.setTelephone("123456");
+		registerPage.setAddress("asdasdadsds");
+		registerPage.setCity("asdadsasdfsdfa");
+		registerPage.setPostCode("11300");
+		registerPage.setZoneOption();
+		registerPage.setPassword("Asdasdads123");
+		registerPage.agreeToTerms();
+		registerPage.confirm();
+		String expectedTitle = "Your Account Has Been Created!";
 		String actualTitle = driver.getTitle();
-		driver.quit();
 
 		assertEquals(expectedTitle, actualTitle);
 	}
