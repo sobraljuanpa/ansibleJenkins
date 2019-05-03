@@ -24,6 +24,7 @@ public class SampleTest {
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		firefoxOptions.setBinary(firefoxBinary);
 		driver = new FirefoxDriver(firefoxOptions);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://opencart.abstracta.us");	
 		homePage = new HomePage(driver);
 		//RegisterPage registerPage = new RegisterPage();
