@@ -50,7 +50,7 @@ public class RegisterPage {
     }
 
     public void setZoneOption(){
-        driver.findElement(zoneInput).sendKeys(3522);
+        driver.findElement(zoneInput).sendKeys("3522");
     }
 
     public void setPassword(String password){
