@@ -33,6 +33,10 @@ public class RegisterPage {
         driver.findElement(lastnameInput).sendKeys(lastname);
     }
 
+    public void setEmail(String email) {
+        driver.findElement(emailInput).sendKeys(email);
+    }
+
     public void setTelephone(String telephone){
         driver.findElement(telephoneInput).sendKeys(telephone);
     }

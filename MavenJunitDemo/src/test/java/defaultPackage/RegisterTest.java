@@ -22,14 +22,37 @@ public class RegisterTest {
 
     private WebDriver driver;
     private HomePage homePage;
-    private String prueba1;
-    private String prueba2;
+    //data driven testing params
+    private String username;
+    private String lastname;
+    private String email;
+    private String telephone;
+    private String address;
+    private String city;
+    private String postcode;
+    private String password;
+
+    public RegisterTest(String username, String lastname, String email, 
+        String telephone, String address, String city, 
+        String postcode, String password) {
+        this.username = username;
+        this.lastname = lastname;
+        this.email = email;
+        this.telephone = telephone;
+        this.address = address;
+        this.city = city;
+        this.postcode = postcode;
+        this.password = password;
+    }
 
     @Parameterized.Parameters
     public static Collection inputData() {
         return Arrays.asList(new Object[][] {
-            { "prueba1", "prueba1" },
-            { "prueba2", "prueba2" }
+            { "arsenal", "arsenal", "ars@ars.ars", "123", "arsenal", "arsenal", "123", "arsenal123" },
+            { "chelsea", "chelsea", "che@che.che", "123", "chelsea", "chelsea", "123", "arsenal123" },
+            { "tottenham", "tottenham", "tot@tot.tot", "123", "tottenham", "tottenham", "123", "tottenham123" },
+            { "united", "united", "uni@uni.uni", "123", "united", "united", "123", "united123" },
+            { "city", "city", "cit@cit.cit", "123", "city", "city", "123", "city123" }
         });
     }
 
@@ -48,13 +71,27 @@ public class RegisterTest {
         homePage = new HomePage(driver);
     }
 
-    public RegisterTest(String p1, String p2) {
-        this.prueba1 = p1;
-        this.prueba2 = p2;
-    }
-
     @Test
-    public void testParameterizedRuns() {
-        assertEquals(prueba1, prueba2);
+    public void registerUserTest() {
+        driver.get("http://opencart.abstracta.us");
+        homePage.clickRegister();
+        //aca cambio a la pagina de registro
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.setUsername(this.username);
+        registerPage.setLastname(this.lastname);
+        registerPage.setEmail(this.email);
+        registerPage.setTelephone(this.telephone);
+        registerPage.setAddress(this.address);
+        registerPage.setCity(this.city);
+        registerPage.setPostCode(this.postcode);
+        registerPage.setZoneOption();
+        registerPage.setPassword(this.password);
+        registerPage.agreeToTerms();
+        registerPage.confirm();
+
+        String expectedTitle = "Your Account Has Been Created!";
+        String actualTitle = driver.getTitle();
+
+        assertEquals(expectedTitle, actualTitle);
     }
 }

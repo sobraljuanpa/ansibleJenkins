@@ -27,9 +27,8 @@ public class SampleTest {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://opencart.abstracta.us");	
 		homePage = new HomePage(driver);
-		//RegisterPage registerPage = new RegisterPage();
 	}
-
+/*
 	@Test
 	public void RegisterUserTest()
 	{
@@ -50,7 +49,7 @@ public class SampleTest {
 		String actualTitle = driver.getTitle();
 
 		assertEquals(expectedTitle, actualTitle);
-	}
+	}*/
 
 	@Test
 	public void sampleChangePOMTest()
