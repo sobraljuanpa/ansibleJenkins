@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class RegisterPage {
 
@@ -54,7 +55,8 @@ public class RegisterPage {
     }
 
     public void setZoneOption(){
-        driver.findElement(zoneInput).sendKeys("3522");
+        Select dropDownZone = new Select(driver.findElement(zoneInput));
+        dropDownZone.selectByVisibleText("Aberdeen");
     }
 
     public void setPassword(String password){

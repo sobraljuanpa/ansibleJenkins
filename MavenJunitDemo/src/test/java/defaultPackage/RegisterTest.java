@@ -64,7 +64,7 @@ public class RegisterTest {
         System.setProperty("webdriver.gecko.driver","/home/juanpa/drivers/geckodriver");
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setBinary(firefoxBinary);
-        driver = new FirefoxDriver(firefoxOptions);
+        driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //Simulo ingreso a la homepage
@@ -78,8 +78,7 @@ public class RegisterTest {
     }
 
     @Test
-    public void registerUserTest() {
-        driver.get("http://opencart.abstracta.us");
+    public void registerUserTest() throws InterruptedException {
         homePage.clickRegister();
         //aca cambio a la pagina de registro
         RegisterPage registerPage = new RegisterPage(driver);
