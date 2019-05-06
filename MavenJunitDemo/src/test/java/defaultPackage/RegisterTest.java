@@ -71,6 +71,11 @@ public class RegisterTest {
         homePage = new HomePage(driver);
     }
 
+    @After
+    public void tearDown() {
+        driver.quit();
+    }
+
     @Test
     public void registerUserTest() {
         driver.get("http://opencart.abstracta.us");
