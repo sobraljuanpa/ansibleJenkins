@@ -72,11 +72,6 @@ public class RegisterTest {
         homePage = new HomePage(driver);
     }
 
-    @After
-    public void tearDown() {
-        driver.quit();
-    }
-
     @Test
     public void registerUserTest() throws InterruptedException {
         homePage.clickRegister();
