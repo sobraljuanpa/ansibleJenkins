@@ -64,7 +64,7 @@ public class RegisterTest {
         System.setProperty("webdriver.gecko.driver","/home/juanpa/drivers/geckodriver");
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setBinary(firefoxBinary);
-        driver = new FirefoxDriver();
+        driver = new FirefoxDriver(firefoxOptions);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //Simulo ingreso a la homepage
