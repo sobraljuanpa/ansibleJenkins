@@ -2,22 +2,31 @@ node {
 
     properties([pipelineTriggers([pollSCM('* * * * *')])])
 
-    stage('Clone source code') {
-        git url: 'https://github.com/sobraljuanpa/ansibleJenkins.git', branch: 'master', credentialsId: 'gitCredentials'
-    }
+    try {
 
-    stage('Check that source is cloned') {
-        sh 'ls'
-    }
+        stage('Clone source code') {
+            git url: 'https://github.com/sobraljuanpa/ansibleJenkins.git', branch: 'master', credentialsId: 'gitCredentials'
+        }
 
-    stage('Execute tests using maven') {
-        sh 'cd MavenJunitDemo && mvn clean test'//ejecuto las pruebas usando maven
-    }
-    //mover los archivos al fileserver
+        stage('Check that source is cloned') {
+            sh 'ls'
+        }
 
-    //enviar notificacion por mail
-    stage('Send email notification') {
+        stage('Execute tests using maven') {
+            catchError {
+                sh 'cd MavenJunitDemo && mvn clean test'
+            }
+        }
+        
+    } catch (e) {
+
+        throw e
+
+    } finally {
+
         def commitInfo = sh 'git log --format=format:%s -1'
-        emailext attachLog: true, body: '', subject: 'Test results for ${commitInfo}', to: 'matias.fornara@abstracta.com.uy'
+        emailext attachLog: true, body: '', subject: '${CHANGES_SINCE_LAST_BUILD}', to: 'sobraljuanpa@gmail.com'
+
     }
+
 }
