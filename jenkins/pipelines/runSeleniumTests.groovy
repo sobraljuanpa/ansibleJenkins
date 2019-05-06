@@ -11,8 +11,7 @@ node {
     }
 
     stage('Execute tests using maven') {
-        sh 'cd MavenJunitDemo'//me muevo al directorio con el POM.xml
-        sh 'mvn clean test'//ejecuto las pruebas usando maven
+        sh 'mvn -DfileName="MavenJunitDemo/pom.xml" clean test'//ejecuto las pruebas usando maven
     }
     //mover los archivos al fileserver
 
