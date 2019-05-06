@@ -70,6 +70,6 @@ public class RegisterPage {
     }
 
     public void confirm(){
-        driver.findElement(confirmInput).click();
+        driver.findElement(registerButton).click();
     }
 }
