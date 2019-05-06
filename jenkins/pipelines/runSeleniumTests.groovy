@@ -17,7 +17,7 @@ node {
                 sh 'cd MavenJunitDemo && mvn clean test'
             }
         }
-        
+
     } catch (e) {
 
         throw e
@@ -25,7 +25,7 @@ node {
     } finally {
 
         def commitInfo = sh 'git log --format=format:%s -1'
-        emailext attachLog: true, body: '', subject: '${CHANGES_SINCE_LAST_BUILD}', to: 'sobraljuanpa@gmail.com'
+        emailext attachLog: true, body: '', subject: 'Commit ${CHANGES_SINCE_LAST_BUILD}', to: 'sobraljuanpa@gmail.com, matias.fornara@abstracta.com.uy'
 
     }
 
