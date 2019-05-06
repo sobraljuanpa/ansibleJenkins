@@ -65,7 +65,7 @@ public class RegisterTest {
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setBinary(firefoxBinary);
         driver = new FirefoxDriver(firefoxOptions);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //Simulo ingreso a la homepage
         driver.get("http://opencart.abstracta.us");

@@ -18,7 +18,7 @@ public class RegisterPage {
     By passwordInput = By.id("input-password");//password
     By confirmInput = By.id("input-confirm");//password de nuevo
     By agreeButton = By.name("agree");//hay que clickear esto para el agree de terms and conditions
-    By registerButton = By.cssSelector(".btn-primary");//esto es el boton de create user digamos
+    By registerButton = By.cssSelector(".buttons > .pull-right > .btn.btn-primary");//esto es el boton de create user digamos
     //el assert final de la test deberia ser que el titulo de la pagina sea
     //Your Account Has Been Created!
 
