@@ -11,7 +11,7 @@ public class HomePage {
     By loginButton = By.cssSelector("#top-links > ul > li.dropdown.open > ul > li:nth-child(2) > a");
     By searchBar = By.xpath("//input[@value='search']");
     By searchButton = By.cssSelector("#search > span > button > i");
-    By searchResult = By.cssSelector('#content > div:nth-child(8) > div > div > div.image > a > img');
+    By searchResult = By.cssSelector("#content > div:nth-child(8) > div > div > div.image > a > img");
     
     public HomePage(WebDriver webDriver)
     {
