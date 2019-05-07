@@ -61,11 +61,11 @@ public class SearchTest {
 
     @Test
     public void searchTest() {
-        homePage.search(this.productname);
+        homePage.search(this.productName);
         homePage.selectFirstSearchResult();
 
         String actualTitle = driver.getTitle();
-        assertEquals(true, actualTitle.toLowerCase().contains(this.productname));
+        assertEquals(true, actualTitle.toLowerCase().contains(this.productName));
     }
 }
 //buscar el producto
