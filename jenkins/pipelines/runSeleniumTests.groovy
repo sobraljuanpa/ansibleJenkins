@@ -13,9 +13,7 @@ node {
         }
 
         stage('Execute tests using maven') {
-            catchError {
-                sh 'cd MavenJunitDemo && mvn clean test'
-            }
+            sh 'cd MavenJunitDemo && mvn clean test'
         }
 
     } catch (e) {
