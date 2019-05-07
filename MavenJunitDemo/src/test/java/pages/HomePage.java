@@ -9,7 +9,7 @@ public class HomePage {
     By myAccountButton = By.cssSelector("#top-links > ul > li.dropdown > a > i");
     By registerButton = By.cssSelector("#top-links > ul > li.dropdown.open > ul > li:nth-child(1) > a");
     By loginButton = By.cssSelector("#top-links > ul > li.dropdown.open > ul > li:nth-child(2) > a");
-    By searchBar = By.xpath("//input[@value='search']");
+    By searchBar = By.cssSelector("#search > input");
     By searchButton = By.cssSelector("#search > span > button > i");
     By searchResult = By.cssSelector("#content > div:nth-child(8) > div > div > div.image > a > img");
     
