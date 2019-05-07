@@ -26,6 +26,11 @@ public class LoginTest {
     private String email;
     private String password;
 
+    public LoginTest(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     @Parameterized.Parameters
     public static Collection inputData() {
         return Arrays.asList(new Object[][] {
