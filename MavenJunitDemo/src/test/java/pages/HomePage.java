@@ -14,6 +14,9 @@ public class HomePage {
     By searchResult = By.cssSelector("#content > div:nth-child(8) > div > div > div.image > a > img");
     By addButton = By.cssSelector("#content > div:nth-child(1) > div.col-sm-4 > div.btn-group > button:nth-child(1)");
     By successPopup = By.cssSelector("body > div:nth-child(4) > div.alert.alert-success");
+    By wishListButton = By.cssSelector("#top-links > ul > li:nth-child(3)");
+    By removeFromWishListButton = By.cssSelector("#content > div.table-responsive > table > tbody > tr > td:nth-child(6) > a"); 
+    By successfullyRemovedPopup = By.cssSelector("#content > p");
 
     public HomePage(WebDriver webDriver)
     {
@@ -45,8 +48,21 @@ public class HomePage {
         driver.findElement(addButton).click();
     }
 
+    public void goToWishList() {
+        driver.findElement(wishListButton).click();
+    }
+
+    public void removeElementFromWishList() {
+        driver.findElement(removeFromWishListButton).click();
+    }
+
     public boolean addedConfirmed() {
         return driver.findElement(successPopup).isDisplayed();
+    }
+
+    public boolean removedConfirmed() {
+        return driver.findElement(successfullyRemovedPopup).getText().
+        contains("Your wish list is empty");
     }
     
 }
