@@ -74,7 +74,7 @@ public class AddToWishlistTest {
         homePage.search(this.productName);
         homePage.selectFirstSearchResult();
         //ya en el producto lo agrego a mi wishlist
-        homePage.addToWishList();
+        homePage.addToWishlist();
 
         assertEquals(true, homePage.addedConfirmed());
         //ahora ya autenticado, busco el producto y lo agrego a mi 
