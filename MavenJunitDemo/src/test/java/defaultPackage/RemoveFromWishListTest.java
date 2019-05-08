@@ -64,7 +64,7 @@ public class RemoveFromWishListTest {
     @Test
     public void removeFromWishListTest() {
         homePage.clickLogin();
-        Login loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.setEmail(this.email);
         loginPage.setPassword(this.password);
         loginPage.clickLogin();
