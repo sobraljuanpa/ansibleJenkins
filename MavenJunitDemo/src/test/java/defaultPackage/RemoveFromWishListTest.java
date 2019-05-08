@@ -14,7 +14,7 @@ import org.junit.runners.Parameterized.Parameters;
 import org.junit.runner.RunWith;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox;
+import org.openqa.selenium.firefox.*;
 
 import pages.*;
 
