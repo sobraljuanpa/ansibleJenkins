@@ -22,9 +22,14 @@ node {
 
     } finally {
 
-        def commitInfo = sh 'git log --format=format:%s -1'
-        emailext attachLog: true, body: '', subject: 'Commit ${CHANGES_SINCE_LAST_BUILD}', to: 'sobraljuanpa@gmail.com, matias.fornara@abstracta.com.uy'
-
+        emailext attachLog: true, body: '', subject: 'Commit ${CHANGES_SINCE_LAST_BUILD}', to: 'sobraljuanpa@gmail.com'
+        allure([
+         includeProperties: false,
+         jdk: '',
+         properties: [],
+         reportBuildPolicy: 'ALWAYS',
+         results: [[path: 'MavenJunitDemo/allure-results/']]
+         ])
     }
 
 }
