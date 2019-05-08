@@ -46,7 +46,7 @@ public class HomePage {
     }
 
     public bool addedConfirmed() {
-        return driver.findElement(successPopup).isVisible();
+        return driver.findElement(successPopup).size() != 0;
     }
     
 }
