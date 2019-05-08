@@ -19,7 +19,7 @@ import org.openqa.selenium.firefox.*;
 import pages.*;
 
 @RunWith(Parameterized.class)
-public class AddToWishlistTest {
+public class AddToWishListTest {
     private WebDriver driver;
     private HomePage homePage;
 
@@ -27,7 +27,7 @@ public class AddToWishlistTest {
     private String email;
     private String password;
 
-    public AddToWishlistTest(String productname, String email, String password) {
+    public AddToWishListTest(String productname, String email, String password) {
         this.productName = productname;
         this.email = email;
         this.password = password;

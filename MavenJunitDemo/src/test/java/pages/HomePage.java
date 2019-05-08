@@ -45,8 +45,8 @@ public class HomePage {
         driver.findElement(addButton).click();
     }
 
-    public bool addedConfirmed() {
-        return driver.findElement(successPopup).size() != 0;
+    public boolean addedConfirmed() {
+        return driver.findElement(successPopup).isDisplayed();
     }
     
 }
