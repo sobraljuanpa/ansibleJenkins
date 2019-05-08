@@ -15,7 +15,7 @@ public class HomePage {
     By addButton = By.cssSelector("#content > div:nth-child(1) > div.col-sm-4 > div.btn-group > button:nth-child(1)");
     By successPopup = By.cssSelector("body > div:nth-child(4) > div.alert.alert-success");
     By wishListButton = By.cssSelector("#top-links > ul > li:nth-child(3)");
-    By removeFromWishListButton = By.cssSelector("#content > div.table-responsive > table > tbody > tr > td:nth-child(6) > a"); 
+    By removeFromWishListButton = By.cssSelector(".fa.fa-times");
     By successfullyRemovedPopup = By.cssSelector("#content > p");
 
     public HomePage(WebDriver webDriver)
