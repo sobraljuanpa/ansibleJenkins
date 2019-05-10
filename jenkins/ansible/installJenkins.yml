@@ -50,6 +50,7 @@
     - name: Get Jenkins initial admin password(required for initial config)
       command: cat /var/lib/jenkins/secrets/initialAdminPassword
       register: initial_admin_password
+      become: yes
 
     - name: Print java version
       debug:
