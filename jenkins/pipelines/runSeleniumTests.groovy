@@ -8,10 +8,6 @@ node {
             git url: 'https://github.com/sobraljuanpa/ansibleJenkins.git', branch: 'master', credentialsId: 'gitCredentials'
         }
 
-        stage('Check that source is cloned') {
-            sh 'ls'
-        }
-
         stage('Execute tests using maven') {
             sh 'cd MavenJunitDemo && mvn clean test'
         }
@@ -22,14 +18,9 @@ node {
 
     } finally {
 
-        emailext attachLog: true, body: '', subject: 'Commit ${CHANGES_SINCE_LAST_BUILD}', to: 'sobraljuanpa@gmail.com'
-        allure([
-         includeProperties: false,
-         jdk: '',
-         properties: [],
-         reportBuildPolicy: 'ALWAYS',
-         results: [[path: 'MavenJunitDemo/allure-results/']]
-         ])
-    }
+        allure includeProperties: false, jdk: '', properties: [], reportBuildPolicy: 'ALWAYS', results: [[path: 'MavenJunitDemo/allure-results']]
 
+        emailext attachmentsPattern: '**/allure-report/data/behaviors.json', body: 'Job ${JOB_NAME} build ${BUILD_NUMBER}\n More info at: ${BUILD_URL}', subject: 'Commit ${CHANGES_SINCE_LAST_BUILD}', to: 'juan.sobral@abstracta.com.uy, matias.fornara@abstracta.com.uy'
+
+    }
 }
