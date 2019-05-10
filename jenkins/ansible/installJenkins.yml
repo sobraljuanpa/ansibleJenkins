@@ -44,6 +44,7 @@
     - name: Verify Jenkins service status
       command: service jenkins status
       register: jenkins_status
+      warn: no
 
     - pause:
         seconds: 30
