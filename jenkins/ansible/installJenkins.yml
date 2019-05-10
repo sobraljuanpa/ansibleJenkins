@@ -42,9 +42,8 @@
         name: maven
 
     - name: Verify Jenkins service status
-      command: service jenkins status
+      command: service jenkins status warn=False
       register: jenkins_status
-      warn: no
 
     - pause:
         seconds: 30
