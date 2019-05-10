@@ -33,7 +33,9 @@
       command: ufw allow 8080
 
     - name: Start Jenkins Service
-      command: service jenkins start
+      service:
+        name: jenkins
+        state: started
 
     - name: Install Maven
       apt:
@@ -43,10 +45,6 @@
       command: service jenkins status
       register: jenkins_status
 
-    - name: Verify firewall rules
-      command: ufw status
-      register: firewall_rules
-
     - name: Get Jenkins initial admin password(required for initial config)
       command: cat /var/lib/jenkins/secrets/initialAdminPassword
       register: initial_admin_password
@@ -55,10 +53,6 @@
     - name: Print java version
       debug:
         var: java_version.stderr_lines
-
-    - name: Print firewall rules
-      debug:
-        var: firewall_rules.stdout_lines
 
     - name: Print jenkins status
       debug:
