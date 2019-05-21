@@ -6,10 +6,14 @@
   become: yes
   tasks:
 #this is supposed to be ran like this:
-#ansible-playbook installFirefoxAndDriver.yml --ask-sudo-pass
+#ansible-playbook installSeleniumPrerequisites.yml --ask-sudo-pass
     - name: Install Firefox
       apt:
         name: firefox
+
+    - name: Install Maven
+      apt:
+        name: maven
 
     - name: Change location to the one required by the script and download the driver there
       shell: curl -L https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz | tar zx
