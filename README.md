@@ -2,7 +2,7 @@
 
 ## Ansible playbooks
 
-There are two playbooks in this project; one to configure a server running a debian based distribution as a Jenkins server, and another one to configure a server running a debian based distribution to run selenium tests.
+There are two playbooks in this project; one to configure a server running an Ubuntu based distribution as a Jenkins server, and another one to configure a server running an Ubuntu based distribution to run selenium tests inside a Maven project.
 
 ## Groovy script
 
